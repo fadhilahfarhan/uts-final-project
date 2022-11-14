@@ -15,17 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// membuat route patients menggunakan method apiResource
+# membuat route patients menggunakan method apiResource
+# sudah mencakup function store, index, show, update, destroy
 Route::apiResource('/patients', PatientController::class);
 
-// Search Resource by name
+# karena apiResource tidak mencakup hal lain dari yang diatas
+# maka membuat route dengan manual
+# Search Resource by name
 Route::get('/patients/search/{name}', [PatientController::class, 'search']);
 
-// Search Status Positive Resource
+# Search Status Positive Resource
 Route::get('/patients/status/positive', [PatientController::class, 'positive']);
 
-// Search Status Recovered Resource
+# Search Status Recovered Resource
 Route::get('/patients/status/recovered', [PatientController::class, 'recovered']);
 
-// Search Status Dead Resource
+# Search Status Dead Resource
 Route::get('/patients/status/dead', [PatientController::class, 'dead']);
